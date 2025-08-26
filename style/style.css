@@ -9,7 +9,7 @@ body {
 }
 
 .copy-btn, .call-btn {
-  padding: 0.5rem 0.75rem; /* px-3 py-2 in Tailwind */
+  padding: 0.5rem 0.75rem; 
   border-radius: 0.5rem;
 }
 
@@ -36,8 +36,8 @@ body {
 }
 
 h4 {
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
 }
 p {
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.75rem; 
 }
