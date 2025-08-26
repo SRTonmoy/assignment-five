@@ -571,34 +571,34 @@
           </div>
         </section>
 
-        <aside class="lg:col-span-3">
-          <div class="bg-white rounded-2xl p-4 shadow-sm card-shadow soft-ring">
-            <div class="flex items-center justify-between mb-3">
-              <div class="flex items-center gap-2">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <h3 class="text-sm font-semibold">Call History</h3>
-              </div>
+        <aside class="lg:col-span-3 flex flex-col">
+    <div class="bg-white rounded-2xl p-4 shadow-sm card-shadow soft-ring flex flex-col h-full">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <h3 class="text-sm font-semibold">Call History</h3>
+        </div>
 
-              <button
-                id="clearHistoryBtn"
-                class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium px-3 py-1.5 rounded-full"
-              >
-                <i class="fa-solid fa-trash"></i>
-                Clear
-              </button>
-            </div>
-
-            <ul
-              id="historyList"
-              class="space-y-3 max-h-[72vh] overflow-y-auto px-1 py-1"
-            >
-              <li id="historyEmpty" class="text-sm text-slate-500">
-                No calls yet.
-              </li>
-            </ul>
-          </div>
-        </aside>
+        <button
+          id="clearHistoryBtn"
+          class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium px-3 py-1.5 rounded-full"
+        >
+          <i class="fa-solid fa-trash"></i>
+          Clear
+        </button>
       </div>
+
+      <ul
+        id="historyList"
+        class="space-y-3 overflow-y-auto px-1 py-1 flex-1"
+      >
+        <li id="historyEmpty" class="text-sm text-slate-500">
+          No calls yet.
+        </li>
+      </ul>
+    </div>
+  </aside>
+</div>
     </main>
 
     <footer class="py-1 mt-10"></footer>
