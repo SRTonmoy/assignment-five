@@ -2,14 +2,15 @@
 
 body {
   background-color: #f0f0f0;
-  font-family: 'Hind Madurai', sans-serif;
+  font-family: "Hind Madurai", sans-serif;
   margin: 0;
   padding: 0;
   color: #333;
 }
 
-.copy-btn, .call-btn {
-  padding: 0.5rem 0.75rem; 
+.copy-btn,
+.call-btn {
+  padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
 }
 
@@ -39,5 +40,5 @@ h4 {
   font-size: 1rem;
 }
 p {
-  font-size: 0.75rem; 
+  font-size: 0.75rem;
 }

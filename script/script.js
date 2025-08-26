@@ -2,8 +2,8 @@ let coins = 100;
 let heartCount = 0;
 let copyCount = 0;
 
-const el = sel => document.querySelector(sel);
-const elAll = sel => Array.from(document.querySelectorAll(sel));
+const el = (sel) => document.querySelector(sel);
+const elAll = (sel) => Array.from(document.querySelectorAll(sel));
 
 function updateNav() {
   el("#navCoins").textContent = coins;
@@ -93,7 +93,7 @@ function copyText(text) {
 function attachCardEvents() {
   const cards = elAll("#cardsGrid article");
 
-  cards.forEach(card => {
+  cards.forEach((card) => {
     const heartBtn = card.querySelector(".heart-btn");
     const copyBtn = card.querySelector(".copy-btn");
     const callBtn = card.querySelector(".call-btn");
@@ -134,7 +134,7 @@ function attachCardEvents() {
 
     // Click on number for copies
     if (numberDiv) {
-      numberDiv.style.cursor = "pointer"; 
+      numberDiv.style.cursor = "pointer";
       numberDiv.addEventListener("click", async () => {
         try {
           await copyText(number);
@@ -173,7 +173,6 @@ el("#clearHistoryBtn").addEventListener("click", () => {
   empty.textContent = "No calls yet.";
   list.appendChild(empty);
 });
-
 
 function init() {
   updateNav();
