@@ -89,7 +89,7 @@ function copyText(text) {
   }
 }
 
-/*  attach card events  */
+/* attach card events  */
 function attachCardEvents() {
   const cards = elAll("#cardsGrid article");
 
