@@ -2,8 +2,8 @@ let coins = 100;
 let heartCount = 0;
 let copyCount = 0;
 
-const el = (sel) => document.querySelector(sel);
-const elAll = (sel) => Array.from(document.querySelectorAll(sel));
+const el = sel => document.querySelector(sel);
+const elAll = sel => Array.from(document.querySelectorAll(sel));
 
 function updateNav() {
   el("#navCoins").textContent = coins;
@@ -11,7 +11,7 @@ function updateNav() {
   el("#navCopy").textContent = `${copyCount} Copy`;
 }
 
-/* ======= my pc local time ======= */
+/*  pc local time */
 function exactLocalTime() {
   const now = new Date();
   return now.toLocaleString(undefined, {
@@ -24,7 +24,7 @@ function exactLocalTime() {
   });
 }
 
-/* ======= history entry ======= */
+/* history entry  */
 function addHistoryEntry(name, number, imgSrc) {
   const list = el("#historyList");
   const empty = el("#historyEmpty");
@@ -63,6 +63,7 @@ function addHistoryEntry(name, number, imgSrc) {
   list.prepend(li);
 }
 
+/*  copy text*/
 function copyText(text) {
   if (!text) return Promise.reject(new Error("No text"));
   if (navigator.clipboard && window.isSecureContext) {
@@ -88,27 +89,28 @@ function copyText(text) {
   }
 }
 
+/*  attach card events  */
 function attachCardEvents() {
   const cards = elAll("#cardsGrid article");
 
-  cards.forEach((card) => {
+  cards.forEach(card => {
     const heartBtn = card.querySelector(".heart-btn");
     const copyBtn = card.querySelector(".copy-btn");
     const callBtn = card.querySelector(".call-btn");
+    const numberDiv = card.querySelector(".text-lg.font-extrabold");
 
     const nameEn =
       card.dataset.nameEn ||
       card.dataset.name ||
       card.querySelector("p")?.textContent ||
       "Service";
-    const nameBn =
-      card.dataset.nameBn || card.querySelector("h4")?.textContent || nameEn;
     const number = card.dataset.number || "";
     const img =
       card.dataset.img ||
       card.querySelector("img")?.src ||
       "assets/emergency.png";
 
+    // Heart click
     if (heartBtn) {
       heartBtn.addEventListener("click", () => {
         heartCount += 1;
@@ -116,6 +118,7 @@ function attachCardEvents() {
       });
     }
 
+    // Copy click
     if (copyBtn) {
       copyBtn.addEventListener("click", async () => {
         try {
@@ -129,6 +132,22 @@ function attachCardEvents() {
       });
     }
 
+    // Click on number for copies
+    if (numberDiv) {
+      numberDiv.style.cursor = "pointer"; 
+      numberDiv.addEventListener("click", async () => {
+        try {
+          await copyText(number);
+          copyCount += 1;
+          updateNav();
+          alert(`Copied ${nameEn} number: ${number}`);
+        } catch (err) {
+          alert("Copy failed. Try selecting and copying manually.");
+        }
+      });
+    }
+
+    // Call click
     if (callBtn) {
       callBtn.addEventListener("click", () => {
         if (coins < 20) {
@@ -144,6 +163,7 @@ function attachCardEvents() {
   });
 }
 
+// clearhistory
 el("#clearHistoryBtn").addEventListener("click", () => {
   const list = el("#historyList");
   list.innerHTML = "";
@@ -153,6 +173,7 @@ el("#clearHistoryBtn").addEventListener("click", () => {
   empty.textContent = "No calls yet.";
   list.appendChild(empty);
 });
+
 
 function init() {
   updateNav();
