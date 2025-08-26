@@ -1,9 +1,31 @@
 @import "tailwindcss";
 
 body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.card-shadow {
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+.soft-ring {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+.badge-soft {
+  background: rgba(15, 115, 60, 0.06);
+  color: #0f7b43;
+}
+.muted {
+  color: #6b7280;
+}
+.heart-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
