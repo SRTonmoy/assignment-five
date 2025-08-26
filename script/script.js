@@ -12,6 +12,14 @@ function updateNav() {
   el('#navCopy').textContent = `${copyCount} Copy`;
 }
 
+function exactLocalTime() {
+  const now = new Date();
+  return now.toLocaleString(undefined, {
+    year: 'numeric', month: 'short', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+}
+
 
 function init() {
   updateNav();
